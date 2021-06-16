@@ -7,9 +7,9 @@ public class Student {
     private String lastName;
     private int gradeYear;
     private String studentId;
-    private String courses=null;
+    private String courses;
     private int tutionBalance=0;
-    private static int costOfCourse=600;
+    private static int costOfCourse=500;
     private static int id=1000;
 
     public Student(){
@@ -24,27 +24,31 @@ public class Student {
         this.gradeYear=in.nextInt();
 
         setStudentID();
-//        System.out.println(firstName+" "+lastName+" "+gradeYear+" "+studentId);
+//        System.out.println(firstName+" "+lastName+" "+gradeYear+" "+studentId); just for debugging
     }
     private void setStudentID(){
         id++;
-        this.studentId=gradeYear+" "+id;
+        this.studentId="IEC"+gradeYear+id;
     }
     public void enroll(){
         do {
             System.out.println("Enter course to enroll (Q to quit): ");
             Scanner in = new Scanner(System.in);
             String course = in.nextLine();
-            if (!course.equals("Q")){
-                courses = courses + "\n" + course;
+            if(courses==null){
+                courses=course;
+                tutionBalance += costOfCourse;
+            }
+            else if (!course.equals("Q")){
+                courses=courses+"\n"+course;
                 tutionBalance += costOfCourse;
             } else{
                 System.out.println("BREAKS!!");
                 break;
             }
         }while(1!=0);
-//        System.out.println("Enrolled in: "+courses);
-//        System.out.println("Tution balance :"+tutionBalance);
+        System.out.println("Enrolled in: \n"+courses);
+        System.out.println("Tution balance : $"+tutionBalance);
     }
     public void viewBalance(){
         System.out.println("Your balance is : $"+tutionBalance);
