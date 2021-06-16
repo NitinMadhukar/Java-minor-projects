@@ -13,15 +13,15 @@ public class Email {
     private int defaultPasswordLength=10;
     private int mailboxCapacity=500;
 
-    // consrtuctor to recive firstname and last name
+    // constructor to recieve first name and last name
     public Email(String firstName,String lastName){
         this.firstName=firstName;
         this.lastName=lastName;
-//        System.out.println("Email created:"+this.firstName +" " + this.lastName);
+        System.out.println("Email created :"+this.firstName +" "+ this.lastName);
 
         //Call a method asking for department and return the department
         this.department=setDepartment();
-//        System.out.println("DEPARTMENT: "+this.department);
+        System.out.println("DEPARTMENT: "+this.department);
 
         //Call a method that return random password
         this.password=randomPassword(defaultPasswordLength);
@@ -29,11 +29,11 @@ public class Email {
 
         //Combine elements to generate Email
         email=firstName.toLowerCase()+"."+lastName.toLowerCase()+"@"+department+'.'+companySuffix;
-//        System.out.println("Your email is :"+email);
+        System.out.println("Your email is :"+email);
     }
     //Ask for the department
     private String setDepartment(){
-        System.out.println("New worker : "+firstName+  "\nDEPARTMENT CODES\n1 for sales\n2 for development\n3 for Accounting\n0 for none\n Enter department code :");
+        System.out.println("New worker :"+firstName+  "\nDEPARTMENT CODES\n1 for sales\n2 for development\n3 for Accounting\n0 for none\n Enter department code :");
         Scanner in=new Scanner(System.in);
         int deptChoice=in.nextInt();
         if(deptChoice==1) return "sales";
@@ -60,12 +60,14 @@ public class Email {
     public void setAlternateEmail(String altEmail){
         this.alternateEmail=altEmail;
     }
-    //Change the passowrd
+    //Change the password
     public void changePassword(String password){
         this.password=password;
     }
 
-    public int getMailboxCapacity() { return mailboxCapacity;}
+    public int getMailboxCapacity() {
+        return mailboxCapacity;
+    }
 
     public String getAlternateEmail() {
         return alternateEmail;
@@ -74,6 +76,6 @@ public class Email {
         return password;
     }
     public String showInfo(){
-        return "DISPLAY NAME : "+firstName+" "+lastName+"\nCOMPANY EMAIL : "+email+"\nMAILBOX CAPACITY : "+mailboxCapacity+"mb";
+        return "DISPLAY NAME :"+firstName+" "+lastName+"\nCOMPANY EMAIL :"+email+"\nMAILBOX CAPACITY :"+mailboxCapacity+"mb";
     }
 }
