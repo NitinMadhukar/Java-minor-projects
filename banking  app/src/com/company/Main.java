@@ -22,16 +22,16 @@ class BankAccount
     }
 
     void deposit(int amount){
-        if(amount!=0){
+//        if(amount!=0){
             balance+=amount;
             previousTransaction=amount;
-        }
+//        }
     }
     void withdraw(int amount){
-        if(amount!=0){
+//        if(amount!=0){
             balance-=amount;
             previousTransaction=-amount;
-        }
+//        }
     }
     void getPreviousTransaction(){
         if(previousTransaction>0)
